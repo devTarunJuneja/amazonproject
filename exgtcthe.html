@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Customized Tickertape Applet</title>
+    <style>
+        #tickertape {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: rgb(237, 192, 171);
+            font-size: 20px;
+            padding: 10px 0;
+            overflow: hidden;
+            white-space: nowrap;
+            animation: ticker 15s linear infinite;
+        }
+
+        @keyframes ticker {
+            0% {
+                transform: translateX(100%);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="tickertape">
+        <span id="message">Customized tickertape message here</span>
+    </div>
+
+    <script>
+        // Increase count and update message count
+        let count = 1;
+
+        function updateMessage() {
+            document.getElementById('message').textContent = `Customized tickertape message ${count}`;
+            count++;
+        }
+        
+        setInterval(updateMessage, 5000); // Change the message every 5 seconds
+
+        // Change the scrolling speed
+        document.getElementById('tickertape').style.animationDuration = '10s'; // Change scrolling speed to 10 seconds
+    </script>
+</body>
+</html>
+6
